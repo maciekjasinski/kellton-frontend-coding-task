@@ -3,7 +3,7 @@ import { PartCard } from '@common/PartCard';
 import { useSummary } from './Summary.hooks';
 
 export const Summary = () => {
-  const { selectedMinifig, disabled, parts, isLoading } = useSummary();
+  const { selectedMinifig, disabled, parts, isLoading, isSubmitting } = useSummary();
 
   return (
     <div className="flex flex-col gap-4 rounded-lg bg-white p-6 lg:h-fit lg:justify-between">
@@ -21,7 +21,7 @@ export const Summary = () => {
         </div>
         {isLoading ? (
           <span className="loading loading-bars loading-lg self-center"></span>
-        ) : !!parts.length ? (
+        ) : parts.length ? (
           <>
             <span className="font-bold text-info-content">There are {parts.length} parts in this minifig:</span>
             {parts.map((part) => (
@@ -32,7 +32,12 @@ export const Summary = () => {
           <span>Failed to fetch minifig parts</span>
         )}
       </div>
-      <button className="btn btn-primary w-full disabled:text-info-content" type="submit" disabled={disabled}>
+      <button
+        className="btn btn-primary w-full disabled:text-info-content"
+        type="submit"
+        disabled={isSubmitting || disabled}
+      >
+        {isSubmitting && <span className="loading loading-bars loading-xs"></span>}
         Submit
       </button>
     </div>

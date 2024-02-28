@@ -7,15 +7,24 @@ export const fetchParts = async (set_id: string) => {
       `https://rebrickable.com/api/v3/lego/minifigs/${set_id}/parts/?key=${import.meta.env.VITE_REBRICKABLE_API_KEY}`,
     )
     .then((res) => {
-      return res.data.results.map((each: any) => {
-        const { part } = each;
-        return {
-          id: part.part_num,
-          name: part.name,
-          picture: part.part_img_url || null,
-        };
-      }) as MinifigPartType[];
-    }).catch(() => {
+      return res.data.results.map(
+        (each: {
+          part: {
+            part_num: string;
+            name: string;
+            part_img_url: string | null;
+          };
+        }) => {
+          const { part } = each;
+          return {
+            id: part.part_num,
+            name: part.name,
+            picture: part.part_img_url || null,
+          };
+        },
+      ) as MinifigPartType[];
+    })
+    .catch(() => {
       return [];
     });
 };
