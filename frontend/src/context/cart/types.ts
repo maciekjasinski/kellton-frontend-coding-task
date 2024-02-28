@@ -12,9 +12,11 @@ export type Action =
     };
 
 export interface State {
-  selectedMinifig: (MinifigCardProps & {
-    parts: any
-  }) | null;
+  selectedMinifig:
+    | (MinifigCardProps & {
+        parts: {};
+      })
+    | null;
 }
 
 export interface CartContextInterface extends State {
