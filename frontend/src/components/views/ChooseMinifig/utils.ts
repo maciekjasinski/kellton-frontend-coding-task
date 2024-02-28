@@ -1,10 +1,11 @@
 import { MinifigType } from '@/types/minifig';
 import axios from 'axios';
 
-const getRandomId = (arrayLength: number) => {
+export const getRandomId = (arrayLength: number) => {
   const uniqueIds = new Set<number>();
+  const maxUniqueIds = Math.min(3, arrayLength);
 
-  while (uniqueIds.size < 3) {
+  while (uniqueIds.size < maxUniqueIds) {
     const id = Math.floor(Math.random() * arrayLength);
     uniqueIds.add(id);
   }
