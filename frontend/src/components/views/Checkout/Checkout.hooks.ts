@@ -10,7 +10,7 @@ export const useCheckout = () => {
 
   const handleSubmit = async (values: FormikValuesInterface) => {
     return axios
-      .post('/api/checkout', values)
+      .post('/kellton-frontend-coding-task/api/checkout', values)
       .then(() => {
         cartDispatch({ type: 'clearCart' });
         navigate('/');

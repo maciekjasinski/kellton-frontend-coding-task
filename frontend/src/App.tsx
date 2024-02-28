@@ -6,7 +6,7 @@ import { CartProvider } from './context/cart';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/kellton-frontend-coding-task">
       <CartProvider>
         <Routes>
           <Route path="/checkout" element={<Checkout />} />
