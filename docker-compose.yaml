@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    restart: unless-stopped
+    command: sh -c 'npm run dev'
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./frontend:/code
