@@ -1,4 +1,4 @@
-import { MinifigCardProps } from '@/components/common/MinifigCard/MinifigCard.interface';
+import { MinifigType } from '@/types/minifig';
 import axios from 'axios';
 
 export const fetchMinifigs = () => {
@@ -14,6 +14,6 @@ export const fetchMinifigs = () => {
             setId: each.set_num,
           };
         },
-      ) as MinifigCardProps[];
+      ) as MinifigType[];
     });
 };

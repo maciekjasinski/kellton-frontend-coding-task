@@ -1,4 +1,3 @@
-import { MinifigCardProps } from '@/components/common/MinifigCard/MinifigCard.interface';
 import { MinifigPartType, MinifigType } from '@/types/minifig';
 
 export type Dispatch = (action: Action) => void;
@@ -17,7 +16,7 @@ export type Action =
 
 export interface State {
   selectedMinifig:
-    | (MinifigCardProps & {
+    | (MinifigType & {
         parts: MinifigPartType[];
       })
     | null;

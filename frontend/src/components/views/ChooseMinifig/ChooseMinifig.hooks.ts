@@ -1,12 +1,12 @@
-import { MinifigCardProps } from '@/components/common/MinifigCard/MinifigCard.interface';
 import { useEffect, useState } from 'react';
 import { fetchMinifigs } from './utils';
 import { useCart } from '@/context/cart';
+import { MinifigType } from '@/types/minifig';
 
 export const useChooseMinifig = () => {
   const { cartDispatch, selectedMinifig } = useCart();
 
-  const [minifigs, setMinifigs] = useState<MinifigCardProps[]>([]);
+  const [minifigs, setMinifigs] = useState<MinifigType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const useChooseMinifig = () => {
     }
   }, []);
 
-  const addToCart = (minifig: MinifigCardProps) => {
+  const addToCart = (minifig: MinifigType) => {
     if (minifig.name === selectedMinifig?.name) {
       return cartDispatch({
         type: 'clearCart',

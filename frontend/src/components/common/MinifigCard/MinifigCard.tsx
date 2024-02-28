@@ -1,7 +1,7 @@
 import Glasses from '@assets/icons/glasses.svg?react';
-import { MinifigCardProps } from './MinifigCard.interface';
+import { MinifigType } from '@/types/minifig';
 
-export const MinifigCard = ({ name, detailsUrl, picture }: MinifigCardProps) => {
+export const MinifigCard = ({ name, detailsUrl, picture }: MinifigType) => {
   return (
     <div className="flex w-full flex-col items-center gap-4 rounded-lg bg-white p-6">
       {picture ? (
