@@ -1,0 +1,1 @@
+export { ChooseMinifig } from './ChooseMinifig';

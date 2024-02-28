@@ -13,10 +13,10 @@ export default defineConfig({
       '@common': path.resolve(__dirname, 'src/components/common'),
       '@modules': path.resolve(__dirname, 'src/components/modules'),
       '@views': path.resolve(__dirname, 'src/components/views'),
-    }
+    },
   },
   server: {
     port: 3000,
     host: true,
-  }
+  },
 });
