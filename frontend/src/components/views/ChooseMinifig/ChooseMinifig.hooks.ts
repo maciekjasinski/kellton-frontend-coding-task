@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchMinifigs } from './utils';
 import { useCart } from '@/context/cart';
 import { MinifigType } from '@/types/minifig';
+import { fetchMinifigs } from './utils';
 
 export const useChooseMinifig = () => {
   const { cartDispatch, selectedMinifig } = useCart();
@@ -11,9 +11,11 @@ export const useChooseMinifig = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchMinifigs().then((res) => {
-      setMinifigs(res);
-    }).finally(() => setIsLoading(false));
+    fetchMinifigs()
+      .then((res) => {
+        setMinifigs(res);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   const addToCart = (minifig: MinifigType) => {

@@ -7,18 +7,20 @@ import { fetchParts } from './utils';
 
 export const useSummary = () => {
   const { selectedMinifig, cartDispatch } = useCart();
-  const { values } = useFormikContext<FormikValuesInterface>();
+  const { values, isSubmitting } = useFormikContext<FormikValuesInterface>();
 
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (selectedMinifig && selectedMinifig.parts.length === 0) {
-      setIsLoading(true)
-      fetchParts(selectedMinifig.setId).then((res) => {
-        cartDispatch({ type: 'addMinifigParts', parts: res })
-      }).finally(() => {
-        setIsLoading(false);
-      })
+      setIsLoading(true);
+      fetchParts(selectedMinifig.setId)
+        .then((res) => {
+          cartDispatch({ type: 'addMinifigParts', parts: res });
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   }, [selectedMinifig]);
 
@@ -26,6 +28,7 @@ export const useSummary = () => {
     selectedMinifig,
     parts: (selectedMinifig?.parts || []) as MinifigPartType[],
     isLoading,
-    disabled: Object.values(values).some((value) => !value)
+    disabled: Object.values(values).some((value) => !value),
+    isSubmitting,
   };
 };
