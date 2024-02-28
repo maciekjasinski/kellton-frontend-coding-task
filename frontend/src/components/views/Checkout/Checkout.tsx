@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { Form as FromSection } from './Sections/Form';
 import { Summary } from './Sections/Summary';
 import { useCheckout } from './Checkout.hooks';
 import { initialValues, validationSchema } from './utils';
-import { Link } from 'react-router-dom';
 
 export const Checkout = () => {
   const { selectedMinifig, handleSubmit } = useCheckout();
@@ -26,7 +26,7 @@ export const Checkout = () => {
     <div className="p-4 lg:mx-auto lg:w-8/12">
       <h1 className="text-2xl font-bold uppercase text-white">Shipping details</h1>
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
-        <Form className="flex flex-col gap-16 lg:grid lg:grid-cols-checkoutGrid lg:gap-24">
+        <Form className="lg:grid-cols-checkoutGrid flex flex-col gap-16 lg:grid lg:gap-24">
           <FromSection />
           <Summary />
         </Form>
