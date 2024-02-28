@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { clsx } from 'clsx';
 import { MinifigCard } from '@common/MinifigCard';
 import { useChooseMinifig } from './ChooseMinifig.hooks';
@@ -31,9 +32,11 @@ export const ChooseMinifig = () => {
           </div>
         )}
       </div>
-      <button className="btn btn-primary w-full" disabled={!selectedMinifig}>
-        Proceed to shipment
-      </button>
+      <Link to="/checkout" className="w-full">
+        <button className="btn btn-primary w-full" disabled={!selectedMinifig}>
+          Proceed to shipment
+        </button>
+      </Link>
     </div>
   );
 };
