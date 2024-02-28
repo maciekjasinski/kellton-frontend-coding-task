@@ -6,7 +6,11 @@ import './index.css';
 async function enableMocking() {
   if (import.meta.env.DEV) {
     const { worker } = await import('./mocks/browser');
-    worker.start();
+    worker.start({
+      serviceWorker: {
+        url: '/kellton-frontend-coding-task/mockServiceWorker.js',
+      },
+    });
   }
 }
 
