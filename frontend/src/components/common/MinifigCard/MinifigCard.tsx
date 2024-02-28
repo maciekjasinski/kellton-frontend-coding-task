@@ -5,7 +5,7 @@ export const MinifigCard = ({ name, detailsUrl, picture }: MinifigCardProps) => 
   return (
     <div className="flex w-full flex-col items-center gap-4 rounded-lg bg-white p-6">
       {picture ? (
-        <img src={picture} alt={name} className="size-48 rounded-lg object-contain" />
+        <img src={picture} alt={name} className="size-48 object-contain" />
       ) : (
         <div className="flex size-48 items-center justify-center rounded-full bg-gray-100">
           <Glasses className="size-24" />
