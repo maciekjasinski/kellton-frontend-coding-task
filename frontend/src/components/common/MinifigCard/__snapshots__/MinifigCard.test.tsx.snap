@@ -1,0 +1,70 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MinifigCard > should create snapshot 1`] = `
+<div
+  className="flex h-full w-full flex-col items-center justify-between gap-4 rounded-lg bg-white p-6"
+>
+  <div
+    className="flex flex-col items-center gap-4"
+  >
+    <img
+      alt="Test Minifig"
+      className="size-48 object-contain"
+      src="http://example.com/image.png"
+    />
+    <span
+      className="text-center text-base font-bold text-info-content"
+    >
+      Test Minifig
+    </span>
+  </div>
+  <a
+    className="text-sm font-bold text-accent"
+    href="http://example.com/"
+    onClick={[Function]}
+    target="_blank"
+  >
+    Show details
+  </a>
+</div>
+`;
+
+exports[`MinifigCard > should create snapshot without picture 1`] = `
+<div
+  className="flex h-full w-full flex-col items-center justify-between gap-4 rounded-lg bg-white p-6"
+>
+  <div
+    className="flex flex-col items-center gap-4"
+  >
+    <div
+      className="flex size-48 items-center justify-center rounded-full bg-gray-100"
+    >
+      <svg
+        className="size-24"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15.5 7h-.7c-.4-1.2-1.5-2-2.8-2s-2.4.9-2.8 2.1c-.3-.4-.7-.6-1.2-.6s-.9.2-1.2.6C6.4 5.9 5.3 5 4 5s-2.4.9-2.8 2H.5c-.3 0-.5.2-.5.5s.2.5.5.5H1c0 1.7 1.3 3 3 3c1.5 0 2.7-1.1 3-2.5c.3 0 .5-.2.5-.5s.2-.5.5-.5s.5.2.5.5s.2.5.5.5c.2 1.4 1.5 2.5 3 2.5c1.7 0 3-1.3 3-3h.5c.3 0 .5-.2.5-.5s-.2-.5-.5-.5M4 10c-1.1 0-2-.9-2-2s.9-2 2-2s2 .9 2 2s-.9 2-2 2m8 0c-1.1 0-2-.9-2-2s.9-2 2-2s2 .9 2 2s-.9 2-2 2"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <span
+      className="text-center text-base font-bold text-info-content"
+    >
+      Test Minifig
+    </span>
+  </div>
+  <a
+    className="text-sm font-bold text-accent"
+    href="http://example.com/"
+    onClick={[Function]}
+    target="_blank"
+  >
+    Show details
+  </a>
+</div>
+`;
