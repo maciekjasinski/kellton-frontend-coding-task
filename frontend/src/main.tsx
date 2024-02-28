@@ -4,14 +4,13 @@ import App from './App.tsx';
 import './index.css';
 
 async function enableMocking() {
-  if (import.meta.env.DEV) {
-    const { worker } = await import('./mocks/browser');
-    worker.start({
-      serviceWorker: {
-        url: '/kellton-frontend-coding-task/mockServiceWorker.js',
-      },
-    });
-  }
+  // Enable service worker in all environments
+  const { worker } = await import('./mocks/browser');
+  worker.start({
+    serviceWorker: {
+      url: '/kellton-frontend-coding-task/mockServiceWorker.js',
+    },
+  });
 }
 
 enableMocking().then(() => {
