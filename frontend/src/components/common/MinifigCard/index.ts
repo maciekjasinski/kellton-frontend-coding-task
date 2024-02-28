@@ -1,0 +1,1 @@
+export { MinifigCard } from './MinifigCard';
