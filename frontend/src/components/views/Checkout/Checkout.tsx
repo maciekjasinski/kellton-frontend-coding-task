@@ -10,11 +10,11 @@ export const Checkout = () => {
 
   if (!selectedMinifig) {
     return (
-      <div className="flex min-h-dvh items-center p-4">
-        <div className="flex w-full flex-col items-center gap-4 rounded bg-white p-4">
-          <h1 className="text-center text-2xl font-bold uppercase text-black">Your cart is empty!</h1>
+      <div className="flex min-h-dvh items-center justify-center p-4 xl:mx-auto xl:w-maxWidth">
+        <div className="flex w-full flex-col items-center gap-4 rounded-lg bg-white p-4 lg:w-fit lg:p-6">
+          <h1 className="text-center text-2xl font-bold uppercase text-info-content">Your cart is empty!</h1>
           <p className="text-center text-base text-gray-400">Please choose your minifig.</p>
-          <Link to="/choose-minifig" className="w-full">
+          <Link to="/choose-minifig" className="w-full lg:w-fit">
             <button className="btn btn-primary w-full text-white">Select minifig</button>
           </Link>
         </div>
@@ -23,10 +23,10 @@ export const Checkout = () => {
   }
 
   return (
-    <div className="p-4 lg:mx-auto lg:w-8/12">
+    <div className="flex flex-col gap-6 p-4 xl:mx-auto xl:min-h-dvh xl:w-maxWidth xl:justify-center xl:p-0 xl:py-12">
       <h1 className="text-2xl font-bold uppercase text-white">Shipping details</h1>
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
-        <Form className="lg:grid-cols-checkoutGrid flex flex-col gap-16 lg:grid lg:gap-24">
+        <Form className="flex flex-col gap-16 lg:grid lg:grid-cols-checkoutGrid lg:gap-24">
           <FromSection />
           <Summary />
         </Form>

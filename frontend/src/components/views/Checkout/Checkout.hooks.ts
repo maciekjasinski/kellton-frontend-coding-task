@@ -9,10 +9,13 @@ export const useCheckout = () => {
   const { selectedMinifig, cartDispatch } = useCart();
 
   const handleSubmit = (values: FormikValuesInterface) => {
-    return axios.post('/api/checkout', values).then((res) => {
-      cartDispatch({ type: 'clearCart' });
-      navigate('/');
-    }).catch((err) => console.log(err))
+    return axios
+      .post('/api/checkout', values)
+      .then((res) => {
+        cartDispatch({ type: 'clearCart' });
+        navigate('/');
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {

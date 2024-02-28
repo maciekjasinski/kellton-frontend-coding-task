@@ -1,16 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.tsx"],
+  plugins: [require("daisyui")],
   theme: {
     extend: {
-      dropShadow: ({ theme }) => ({
-        'selectedShadow': `0 0 8px ${theme('colors.orange.500')}`
-      }),
+      dropShadow:{
+        'selectedShadow': `0 0 8px #ea6947`
+      },
       gridTemplateColumns: {
-        'checkoutGrid': '8fr 4fr',
+        'checkoutGrid': '8fr minmax(330px, 4fr)',
+      },
+      width: {
+        'maxWidth': '1280px'
       }
     },
   },
-  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ['business']
+  },
 }
 

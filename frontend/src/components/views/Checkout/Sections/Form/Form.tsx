@@ -10,7 +10,7 @@ export const Form = () => {
       </div>
       <Field name="phoneNumber" component={FormikTextField} label="Phone number" />
       <Field name="email" component={FormikTextField} label="Email" />
-      <Field name="dateOfBirth" component={FormikTextField} label="Date of birth" />
+      <Field name="dateOfBirth" component={FormikTextField} label="Date of birth" type="date" />
       <Field name="address" component={FormikTextField} label="Address" />
       <Field name="city" component={FormikTextField} label="City" />
       <div className="flex flex-col gap-4">

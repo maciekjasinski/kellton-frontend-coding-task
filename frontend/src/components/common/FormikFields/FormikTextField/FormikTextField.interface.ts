@@ -1,6 +1,6 @@
 import { FieldInputProps, FormikProps } from 'formik';
 
-type InputType = 'text' | 'password' | 'number';
+type InputType = 'text' | 'password' | 'number' | 'date';
 
 export interface FormikTextFieldProps {
   label: string | null;

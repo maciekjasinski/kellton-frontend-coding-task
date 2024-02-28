@@ -16,11 +16,14 @@ export const FormikTextField = ({ label, type = 'text', field, form }: FormikTex
         {...field}
         type={type}
         placeholder="Type here"
-        className={clsx('lg:min-w-xs input input-bordered w-full bg-white', isInvalid && 'input-error')}
+        className={clsx(
+          'lg:min-w-xs input input-bordered w-full bg-white text-info-content placeholder:text-gray-400',
+          isInvalid && 'input-error',
+        )}
       />
       {isInvalid && errorMessage && (
         <div className="label">
-          <span className="text-xs text-red-500">{errorMessage}</span>
+          <span className="text-xs text-error">{errorMessage}</span>
         </div>
       )}
     </label>
