@@ -10,18 +10,10 @@ export const useChooseMinifig = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    try {
-      setIsLoading(true);
-      fetchMinifigs()
-        .then((res) => {
-          setMinifigs(res);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    } catch (error) {
-      console.log('error', error);
-    }
+    setIsLoading(true);
+    fetchMinifigs().then((res) => {
+      setMinifigs(res);
+    }).finally(() => setIsLoading(false));
   }, []);
 
   const addToCart = (minifig: MinifigType) => {
@@ -35,8 +27,6 @@ export const useChooseMinifig = () => {
       minifig: minifig,
     });
   };
-
-  console.log('selectedMinifig', selectedMinifig);
 
   return {
     minifigs,
