@@ -12,6 +12,11 @@ export const cartReducer = (state: State, action: Action) => {
       };
     }
     case 'addMinifigParts': {
+      if (!state.selectedMinifig) {
+        return {
+          ...state,
+        };
+      }
       return {
         ...state,
         selectedMinifig: {
