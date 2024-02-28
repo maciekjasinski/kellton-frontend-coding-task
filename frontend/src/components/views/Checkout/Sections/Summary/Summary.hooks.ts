@@ -1,38 +1,31 @@
-import { useCart } from '@/context/cart';
-import { useFormikContext } from 'formik';
-import { FormikValuesInterface } from '../../Checkout.interface';
 import { useEffect, useState } from 'react';
+import { useFormikContext } from 'formik';
+import { MinifigPartType } from '@/types/minifig';
+import { useCart } from '@/context/cart';
+import { FormikValuesInterface } from '../../Checkout.interface';
 import { fetchParts } from './utils';
 
 export const useSummary = () => {
-  const { selectedMinifig } = useCart();
+  const { selectedMinifig, cartDispatch } = useCart();
   const { values } = useFormikContext<FormikValuesInterface>();
-  const [parts, setParts] = useState<any>([]);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (selectedMinifig) {
-      try {
-        fetchParts(selectedMinifig.setId).then((res) => {
-          setParts(res);
-        });
-      } catch (err) {
-        console.log(err);
-      }
+    if (selectedMinifig && selectedMinifig.parts.length === 0) {
+      setIsLoading(true)
+      fetchParts(selectedMinifig.setId).then((res) => {
+        cartDispatch({ type: 'addMinifigParts', parts: res })
+      }).finally(() => {
+        setIsLoading(false);
+      })
     }
   }, [selectedMinifig]);
 
   return {
     selectedMinifig,
-    disabled:
-      !values.name ||
-      !values.surname ||
-      !values.phoneNumber ||
-      !values.email ||
-      !values.dateOfBirth ||
-      !values.address ||
-      !values.city ||
-      !values.state ||
-      !values.zipCode,
-    parts,
+    parts: (selectedMinifig?.parts || []) as MinifigPartType[],
+    isLoading,
+    disabled: Object.values(values).some((value) => !value)
   };
 };

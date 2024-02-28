@@ -31,7 +31,7 @@ export const useChooseMinifig = () => {
       });
     }
     return cartDispatch({
-      type: 'addToCart',
+      type: 'addMinifig',
       minifig: minifig,
     });
   };
