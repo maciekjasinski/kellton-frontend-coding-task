@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Layout } from '@common/Layout';
 import { Homepage } from '@views/Homepage';
 import { ChooseMinifig } from '@views/ChooseMinifig';
 import { Checkout } from '@views/Checkout';
@@ -8,11 +9,13 @@ function App() {
   return (
     <BrowserRouter basename="/kellton-frontend-coding-task">
       <CartProvider>
-        <Routes>
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/choose-minifig" element={<ChooseMinifig />} />
-          <Route path="/" element={<Homepage />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/choose-minifig" element={<ChooseMinifig />} />
+            <Route path="/" element={<Homepage />} />
+          </Routes>
+        </Layout>
       </CartProvider>
     </BrowserRouter>
   );

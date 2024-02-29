@@ -26,7 +26,7 @@ export const Form = () => {
       <Field name="dateOfBirth" component={FormikTextField} label="Date of birth" type="date" />
       <Field name="address" component={FormikTextField} label="Address" />
       <Field name="city" component={FormikTextField} label="City" />
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 lg:w-full lg:flex-row">
         <Field name="state" component={FormikTextField} label="State" />
         <Field name="zipCode" component={FormikTextField} label="Zip code" />
       </div>
