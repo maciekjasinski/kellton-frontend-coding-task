@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ChooseMinifig > should create a snapshot 1`] = `
+<div
+  className="flex min-h-dvh flex-col items-center justify-center gap-8 p-4 lg:gap-20 xl:mx-auto xl:w-maxWidth xl:p-0"
+>
+  <h1
+    className="text-2xl font-extrabold uppercase text-white lg:text-3xl"
+  >
+    Choose your minifig
+  </h1>
+  <div
+    className="flex w-full flex-col gap-4"
+  >
+    <div>
+      <span>
+        No minifigs found!
+      </span>
+    </div>
+  </div>
+  <button
+    className="btn btn-primary w-full shadow-buttonShadow lg:w-fit"
+    disabled={true}
+    onClick={[Function]}
+  >
+    Proceed to shipment
+  </button>
+</div>
+`;

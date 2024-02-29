@@ -39,11 +39,11 @@ export const validationSchema = yup.object().shape({
     .date()
     .required('Date of birth is required')
     .test('dateOfBirth', 'Should be greater than 18', function () {
-      const value = this.parent.dateOfBirth; 
+      const value = this.parent.dateOfBirth;
       const dateOfBirth = new Date(value);
       const nowDate = new Date();
       const valid = nowDate.getFullYear() - dateOfBirth.getFullYear() >= 18;
-      return !valid ? this.createError() : valid; 
+      return !valid ? this.createError() : valid;
     }),
   address: yup.string().required('Address is required'),
   city: yup.string().required('City is required'),

@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PartCard > should create snapshot 1`] = `
+<div
+  className="flex gap-3"
+>
+  <img
+    alt="Test Minifig"
+    className="size-12 object-contain"
+    src="http://example.com/image.png"
+  />
+  <div
+    className="flex flex-col"
+  >
+    <span
+      className="line-clamp-1 text-sm font-bold text-info-content"
+    >
+      Test Minifig
+    </span>
+    <span
+      className="text-xs text-accent"
+    >
+      a1
+    </span>
+  </div>
+</div>
+`;
