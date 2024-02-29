@@ -13,7 +13,7 @@ exports[`PartCard > should create snapshot 1`] = `
     className="flex flex-col"
   >
     <span
-      className="text-sm font-bold text-info-content"
+      className="line-clamp-1 text-sm font-bold text-info-content"
     >
       Test Minifig
     </span>

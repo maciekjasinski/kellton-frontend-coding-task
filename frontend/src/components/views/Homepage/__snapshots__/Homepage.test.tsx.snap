@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Homepage > should create snapshot 1`] = `
+<div
+  className="flex min-h-dvh flex-col items-center justify-center gap-12 px-4"
+>
+  <h1
+    className="text-2xl font-extrabold uppercase text-white lg:text-4xl"
+  >
+    Lego minifigs mystery box
+  </h1>
+  <a
+    className="w-full md:w-fit"
+    href="/choose-minifig"
+    onClick={[Function]}
+  >
+    <button
+      className="shadow-buttonShadow btn btn-primary w-full md:w-fit"
+    >
+      Let's go
+    </button>
+  </a>
+</div>
+`;
