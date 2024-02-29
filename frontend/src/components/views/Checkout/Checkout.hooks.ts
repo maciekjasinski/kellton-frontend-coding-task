@@ -8,10 +8,10 @@ export const useCheckout = () => {
   const navigate = useNavigate();
   const { selectedMinifig, cartDispatch } = useCart();
 
-  const handleSubmit = (values: FormikValuesInterface) => {
+  const handleSubmit = async (values: FormikValuesInterface) => {
     return axios
-      .post('/api/checkout', values)
-      .then((res) => {
+      .post('/kellton-frontend-coding-task/api/checkout', values)
+      .then(() => {
         cartDispatch({ type: 'clearCart' });
         navigate('/');
       })

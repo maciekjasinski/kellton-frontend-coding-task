@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom';
 import { clsx } from 'clsx';
 import { MinifigCard } from '@common/MinifigCard';
 import { useChooseMinifig } from './ChooseMinifig.hooks';
 
 export const ChooseMinifig = () => {
-  const { minifigs, isLoading, selectedMinifig, addToCart } = useChooseMinifig();
+  const { minifigs, isLoading, selectedMinifig, addToCart, redirectToCheckout } = useChooseMinifig();
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center gap-8 p-4 xl:mx-auto xl:w-maxWidth">
-      <h1 className="text-2xl font-bold uppercase text-white">Choose your minifig</h1>
+    <div className="flex min-h-dvh flex-col items-center justify-center gap-8 p-4 lg:gap-20 xl:mx-auto xl:w-maxWidth xl:p-0">
+      <h1 className="text-2xl font-extrabold uppercase text-white lg:text-3xl">Choose your minifig</h1>
       <div className="flex w-full flex-col gap-4">
         {isLoading ? (
           <>
@@ -34,11 +33,13 @@ export const ChooseMinifig = () => {
           </div>
         )}
       </div>
-      <Link to="/checkout" className="w-full lg:w-fit">
-        <button className="btn btn-primary w-full lg:w-fit" disabled={!selectedMinifig}>
-          Proceed to shipment
-        </button>
-      </Link>
+      <button
+        className="btn btn-primary w-full shadow-buttonShadow lg:w-fit"
+        disabled={!selectedMinifig}
+        onClick={redirectToCheckout}
+      >
+        Proceed to shipment
+      </button>
     </div>
   );
 };

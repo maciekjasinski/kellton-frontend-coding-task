@@ -6,6 +6,7 @@ import path from 'path';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svgr(), react()],
+  base: '/kellton-frontend-coding-task/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

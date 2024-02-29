@@ -7,3 +7,12 @@
     font-family: "Ubuntu", sans-serif;
   }
 }
+
+@layer components {
+  .btn {
+    @apply rounded-3xl px-12;
+  }
+  .btn-primary {
+    @apply text-white;
+  }
+}

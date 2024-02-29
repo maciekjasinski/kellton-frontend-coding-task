@@ -6,8 +6,9 @@ export type Action =
   | {
       type: 'addMinifig';
       minifig: MinifigType;
-    } | {
-      type: 'addMinifigParts',
+    }
+  | {
+      type: 'addMinifigParts';
       parts: MinifigPartType[];
     }
   | {

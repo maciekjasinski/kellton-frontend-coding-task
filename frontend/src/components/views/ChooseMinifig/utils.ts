@@ -1,5 +1,5 @@
-import { MinifigType } from '@/types/minifig';
 import axios from 'axios';
+import { MinifigType } from '@/types/minifig';
 
 export const getRandomId = (arrayLength: number) => {
   const uniqueIds = new Set<number>();
@@ -11,11 +11,13 @@ export const getRandomId = (arrayLength: number) => {
   }
 
   return Array.from(uniqueIds);
-}
+};
 
 export const fetchMinifigs = async () => {
   return await axios
-    .get(`https://rebrickable.com/api/v3/lego/minifigs/?key=${import.meta.env.VITE_REBRICKABLE_API_KEY}&page_size=1000&in_theme_id=${import.meta.env.VITE_HARRY_POTTER_THEME_ID}`)
+    .get(
+      `https://rebrickable.com/api/v3/lego/minifigs/?key=${import.meta.env.VITE_REBRICKABLE_API_KEY}&page_size=1000&in_theme_id=${import.meta.env.VITE_HARRY_POTTER_THEME_ID}`,
+    )
     .then((res) => {
       const randomIds = getRandomId(res.data.count);
       const randomMinifigs = randomIds.map((id: number) => res.data.results[id]);
@@ -29,7 +31,8 @@ export const fetchMinifigs = async () => {
           };
         },
       ) as MinifigType[];
-    }).catch(() => {
-      return [];
     })
+    .catch(() => {
+      return [];
+    });
 };
